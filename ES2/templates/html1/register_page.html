@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registrar-se</title>
+    <link rel="stylesheet" href="{% static 'ES2/register_style.css' %}" />
+</head>
+<body>
+    <header class="top-bar">CronicOff</header>
+    <div class="container">
+        <h2>Registre-se</h2>
+        {% if form.errors %}
+            <div class="error-message">Usuário ou senha inválidos.</div>
+        {% endif %}
+        <form method="post" action="{% url 'ES2:register' %}">
+            {% csrf_token %}
+            {{form}}
+
+            <button type="submit" class="button">Registrar</button>
+        </form>
+        <div class="register-link">
+            Já possui uma conta? <a href="{% url 'ES2:login' %}">Entre na sua conta</a>
+        </div>
+    </div>
+</body>
+</html>

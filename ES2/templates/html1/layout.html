@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atividade Fitness</title>
+  <link rel="stylesheet" href="{%static 'ES2/style.css'%}"/>
+</head>
+<body>
+  <header>
+    <div class="logo">CronicOff</div>
+    <div class="user-actions">
+      {% if user.is_authenticated %}
+        <span>Bem-vindo, {{ user.username }}!</span>
+        <a href="{% url 'ES2:logout' %}">Sair</a>
+      {% else %}
+        <a href="{% url 'ES2:login' %}">Login</a>
+        <a href="{% url 'ES2:register' %}">Cadastrar</a>
+      {% endif %}
+      <div>
+  </header>
+
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="{%url 'ES2:home' %}">Início</a></li>
+        <li><a href="#">Diário</a></li>
+        <li><a href="{%url 'ES2:Exercicio' %}">Exercícios</a></li>
+        <li><a href="#">Relatórios</a></li>
+        <li><a href="#">Configurações</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      
+     
+        
+        {%block body%}
+        {%endblock%}
+        
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyFitnessPal UI Clone</title>
+    <link rel="stylesheet" href="{%static 'ES2/stylenew.css'%}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">MyFitnessPal</h1>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Diary</a>
+                <a href="#" class="nav-link">Nutrition</a>
+                <a href="#" class="nav-link">Goals</a>
+                <a href="#" class="nav-link">More</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="overview">
+            <h2>Today</h2>
+            <div class="calories-box">
+                <div class="calories-info">
+                    <p class="calories-left">Calories Left</p>
+                    <p class="calories-amount">1,450</p>
+                    <p class="calories-goal">Goal: 2,000 kcal</p>
+                </div>
+                <button class="button log-food-button">+ Log Food</button>
+            </div>
+        </section>
+
+        <section class="macros">
+            <h3>Macros</h3>
+            <div class="macro-bars">
+                <div class="macro">
+                    <div class="macro-label">Carbs</div>
+                    <div class="progress-bar carbs">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                    <div class="macro-amounts">100g / 200g</div>
+                </div>
+                <div class="macro">
+                    <div class="macro-label">Protein</div>
+                    <div class="progress-bar protein">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+                    <div class="macro-amounts">70g / 100g</div>
+                </div>
+                <div class="macro">
+                    <div class="macro-label">Fat</div>
+                    <div class="progress-bar fat">
+                        <div class="progress" style="width: 40%;"></div>
+                    </div>
+                    <div class="macro-amounts">40g / 100g</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="meal-summary">
+            <h3>Meals</h3>
+            <ul class="meal-list">
+                <li>
+                    <div class="meal-name">Breakfast</div>
+                    <div class="meal-calories">500 kcal</div>
+                    <button class="button small-button">Add Food</button>
+                </li>
+                <li>
+                    <div class="meal-name">Lunch</div>
+                    <div class="meal-calories">700 kcal</div>
+                    <button class="button small-button">Add Food</button>
+                </li>
+                <li>
+                    <div class="meal-name">Dinner</div>
+                    <div class="meal-calories">600 kcal</div>
+                    <button class="button small-button">Add Food</button>
+                </li>
+                <li>
+                    <div class="meal-name">Snacks</div>
+                    <div class="meal-calories">200 kcal</div>
+                    <button class="button small-button">Add Food</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 MyFitnessPal UI Clone. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+

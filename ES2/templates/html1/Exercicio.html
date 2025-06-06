@@ -1,0 +1,15 @@
+{%extends "html1/layout.html"%}
+
+{%block body%}
+<h1>Programação do dia</h1>
+<div class="card-container">
+     {% for exercicio in Exercicios%}
+        <div class="card">
+          <h2>{{exercicio}}</h2>
+        </div>
+        {%endfor%}
+    
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,60 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CronicOff - Fitness personalizado para preservação de doenças crônicas</title>
+  <link rel="stylesheet" href="{% static 'ES2/invitation_style.css'%}" />
+  
+</head>
+<body>
+  <header role="banner" aria-label="Primary navigation">
+    <div class="logo" aria-label="StrongerHealth Logo">CronicOff</div>
+    <nav role="navigation">
+      <a href="{% url 'ES2:login'%}" aria-label="Conecte-se a sua conta">Entrar</a>
+    </nav>
+  </header>
+  <main role="main">
+    <section class="content" aria-labelledby="main-heading">
+      <h1 id="main-heading">Fitness personalizado para preservação de doenças crônicas</h1>
+      <p>Tome as rédeas da sua saúde com planos fitness projetados para prevenção e tratamento de doenças crônicas. Junte-se a outros que começaram suas jornadas para uma vida mais saudável.</p>
+      <a href="{% url 'ES2:register'%}" class="btn-primary" role="button" aria-label="Crie sua conta">Começe agora</a>
+    </section>
+  </main>
+
+  <section class="features" aria-labelledby="features-heading" id="learn-more">
+    <h2 id="features-heading" style="text-align:center; margin-bottom: 3rem; color: black; font-weight:700;">Por que CronicOff?</h2>
+    <div class="feature-list">
+      <article class="feature-item" tabindex="0" aria-label="Planos personalizados">
+        <img src="https://img.icons8.com/ios-filled/100/1DB954/personal-trainer.png" alt="" aria-hidden="true" class="feature-icon"/>
+        <h3 class="feature-title">Planos personalizados</h3>
+        <p class="feature-desc">
+        Nosso sistema inteligente cria rotinas de exercício projetadas às suas necessidades e objetivos.
+        </p>
+      <article class="feature-item" tabindex="0" aria-label="Acompanhamento de progresso">
+        <img src="https://img.icons8.com/ios-filled/100/1DB954/bar-chart.png" alt="" aria-hidden="true" class="feature-icon"/>
+        <h3 class="feature-title">Acompanhamento de progresso</h3>
+        <p class="feature-desc">
+          Acompanhe sua evolução ao longo do tempo com gráficos e análise, motivando-o a manter-se consistente e alcançar seus objetivos.
+        </p>
+      </article>
+      <article class="feature-item" tabindex="0" aria-label="Mantenha-se motivado">
+        <img src="https://img.icons8.com/ios-filled/100/1DB954/fire-element.png" alt="" aria-hidden="true" class="feature-icon"/>
+        <h3 class="feature-title">Mantenha-se motivado</h3>
+        <p class="feature-desc">
+          Receba lembretes personalizado para manter-se motivado a cada passo do caminho.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="signup-section" aria-labelledby="signup-heading">
+    <h2 id="signup-heading">Preparado para transformar sua saúde?</h2>
+    <p>Crie sua conta hoje e começe sua jornada para um você mais saudável.</p>
+    <a href="{% url 'ES2:register'%}" class="btn-primary" role="button" aria-label="Sign up now to StrongerHealth">Create Account</a>
+  </section>
+
+</body>
+</html>
+
