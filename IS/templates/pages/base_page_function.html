@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detroit: Become Human - 7 Saberes</title>
+    <link rel="stylesheet" href="{% static 'IS/base_page_function.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="game-sidebar">
+            <div class="sidebar-header">
+                <h2>7 Saberes de Morin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#saber1"><i class="icon saber-icon"></i> Saber 1: As Cegueiras do Conhecimento</a></li>
+                    <li><a href="#saber2"><i class="icon saber-icon"></i> Saber 2: Princípios do Conhecimento Pertinente</a></li>
+                    <li><a href="#saber3"><i class="icon saber-icon"></i> Saber 3: Ensinar a Condição Humana</a></li>
+                    <li><a href="#saber4"><i class="icon saber-icon"></i> Saber 4: Identidade Terrena</a></li>
+                    <li><a href="#saber5"><i class="icon saber-icon"></i> Saber 5: Enfrentar as Incertezas</a></li>
+                    <li><a href="#saber6"><i class="icon saber-icon"></i> Saber 6: Ensino da Compreensão</a></li>
+                    <li><a href="#saber7"><i class="icon saber-icon"></i> Saber 7: Ética do Gênero Humano</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#discussao"><i class="icon discussion-icon"></i> Sala de Discussão</a></li>
+                    <li><a href="#quizzes"><i class="icon quiz-icon"></i> Quizzes Interativos</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="game-content">
+            <header class="game-header">
+                <h1>Detroit: Become Human</h1>
+                <div class="game-meta">
+                    <span class="update-status">Atualizado: 15/06/2023</span>
+                </div>
+            </header>
+
+            <section id="saber1" class="content-section active-section">
+                <h2>As Cegueiras do Conhecimento</h2>
+                <div class="content-card">
+                    <!-- Conteúdo do primeiro saber -->
+                </div>
+            </section>
+
+            <!-- Outras seções... -->
+        </main>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Navegação entre seções
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove classe active de todos os itens
+            navLinks.forEach(navLink => {
+                navLink.parentElement.classList.remove('active');
+            });
+            
+            // Adiciona classe active ao item clicado
+            this.parentElement.classList.add('active');
+            
+            // Esconde todas as seções
+            contentSections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+            
+            // Mostra a seção correspondente
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).classList.add('active-section');
+        });
+    });
+    
+    // Ativa a primeira seção por padrão
+    if (navLinks.length > 0) {
+        navLinks[0].click();
+    }
+});
+    </script>
+</body>
+</html>

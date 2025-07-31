@@ -1,0 +1,297 @@
+/* ===== ESTILO GERAL ===== */
+:root {
+    --sidebar-width: 280px;
+    --primary-color: #4cc9f0;
+    --secondary-color: #7209b7;
+    --dark-bg: #1a1a2e;
+    --darker-bg: #0f0f1a;
+    --card-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--darker-bg);
+    color: #e0e0e0;
+}
+
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.game-sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--dark-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #2e2e3e;
+}
+
+.sidebar-header h2 {
+    color: white;
+    font-size: 1.3rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: #b8b8b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(76, 201, 240, 0.1);
+    color: white;
+}
+
+.sidebar-nav .active a {
+    background-color: rgba(76, 201, 240, 0.2);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.saber-icon {
+    background-image: url('{% static "IS/icons/saber-icon.svg" %}');
+}
+
+.discussion-icon {
+    background-image: url('{% static "IS/icons/discussion-icon.svg" %}');
+}
+
+.quiz-icon {
+    background-image: url('{% static "IS/icons/quiz-icon.svg" %}');
+}
+
+.divider {
+    height: 1px;
+    background-color: #2e2e3e;
+    margin: 1rem 0;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.game-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.game-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.game-meta {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active-section {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* ESTILO CENTRALIZADO PARA TÍTULOS H2 */
+.content-section.active-section h2 {
+    text-align: center;
+    margin: 0 auto 2rem;
+    max-width: 80%;
+    position: relative;
+    padding-bottom: 15px;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.content-section.active-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+}
+
+.content-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #2e2e3e;
+    max-width: 900px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVIDADE COMPLETA ===== */
+
+/* Telas grandes (acima de 1600px) */
+@media (min-width: 1600px) {
+    .game-content {
+        padding: 2rem calc((100% - 1200px)/2);
+    }
+    .content-section.active-section h2 {
+        max-width: 70%;
+    }
+}
+
+/* Tablets landscape e desktops pequenos (1024px - 1400px) */
+@media (max-width: 1400px) {
+    .game-content {
+        padding: 2rem 3rem;
+    }
+    .content-card {
+        max-width: 100%;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .content-section.active-section h2 {
+        max-width: 85%;
+        font-size: 2rem;
+        padding-bottom: 12px;
+    }
+    .content-section.active-section h2::after {
+        width: 100px;
+        height: 3px;
+    }
+}
+
+/* Tablets pequenos e celulares grandes (600px - 768px) */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .game-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .sidebar-nav ul {
+        display: flex;
+        padding: 0;
+    }
+    
+    .sidebar-nav li {
+        margin-bottom: 0;
+        border-right: 1px solid #2e2e3e;
+    }
+    
+    .sidebar-nav a {
+        padding: 1rem;
+    }
+    
+    .divider {
+        display: none;
+    }
+    
+    .game-content {
+        padding: 1.5rem;
+    }
+    
+    .content-section.active-section h2 {
+        max-width: 90%;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 10px;
+    }
+    
+    .content-section.active-section h2::after {
+        width: 80px;
+    }
+    
+    .content-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Celulares médios (480px - 600px) */
+@media (max-width: 600px) {
+    .content-section.active-section h2 {
+        font-size: 1.6rem;
+        max-width: 95%;
+    }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    .content-section.active-section h2 {
+        font-size: 1.4rem;
+        padding-bottom: 8px;
+    }
+    
+    .content-section.active-section h2::after {
+        width: 60px;
+        height: 2.5px;
+    }
+    
+    .game-header h1 {
+        font-size: 2rem;
+    }
+}

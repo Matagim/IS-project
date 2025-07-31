@@ -1,0 +1,237 @@
+{%load static   %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS project</title>
+    <link rel="stylesheet" href="{% static 'IS/style.css' %}" >
+    
+</head>
+<body>
+    <header>
+    <div class="logo">
+        IS project
+    </div>
+    <div class="auth-section">
+         <a href="{% url 'IS:login' %}" class="btn">Login</a>
+         <a href="{% url 'IS:register' %}" class="btn">Registrar-se</a>
+    </div>
+</header>
+    
+    <main class="main-container">
+        <section class="welcome-section">
+            <h1>Seu Hub central para um novo horizonte na educação</h1>
+            <p>Junte-se a nós na busca de novas perspectivas sobre o mundo naquilo que mais adoramos fazer, nos divertir em um jogo cativante e imersivo enquanto, de brinde, aprendemos um pouco mais sobre nós mesmos e o mundo.</p>
+        </section>
+        
+         <section class="games-section">
+            <h2 class="section-title">Jogos Disponíveis</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="{% static 'images/genshin_impact.jpg' %}" alt="Genshin Impact" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>Genshin Impact</h3>
+                        <p>Entenda o uso do saber da compreensão de Morran no mundo inquieto de Genshin Impact</p>
+                        <div class="game-meta">
+                            <span class="game-update">NOVO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="{% static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>Detroit: Become Human</h3>
+                        <p>Mergulhe em dilemas éticos em um mundo em conflito pela coexistência de androids e humanos. </p>
+                        <div class="game-meta">
+                            <span class="game-update">NOVO</span>
+                        </div>
+                    </div>
+                </div>
+                
+               <!-- <div class="game-card">
+                    <img src="https://via.placeholder.com/600x400/2a2a3a/7209b7?text=Honkai+Star+Rail" alt="Honkai Star Rail" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>Honkai: Star Rail</h3>
+                        <p>Tudo sobre builds, times ideais e o meta atual de Honkai: Star Rail.</p>
+                        <div class="game-meta">
+                            <span>Atualizado há 2 dias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
+        </section>
+    
+        <section class="tabs-section">
+            <h2 class="section-title">Jogos</h2>
+            <div class="tabs-container">
+                <button class="tab-button active" data-tab="genshin">Genshin Impact</button>
+                <button class="tab-button" data-tab="detroit">Detroit: Become Human</button>
+            </div>
+            
+            <div id="genshin" class="tab-content active">
+                <div class="game-featured">
+                    <img src="{% static 'images/genshin_impact.jpg' %}" alt="Genshin Impact" class="game-featured-image">
+                    <div class="game-featured-content">
+                        <h2>Genshin Impact</h2>
+                        <p>Explore Teyvat, um mundo intrigante, divertido e perigoso e aprenda com sua história e personagens únicos, cada um com habilidades e histórias distintas.</p>
+                        <a href="{%url 'IS:home'%}" class="btn">Saiba Mais</a>
+                    </div>
+                </div>
+            <!--    
+                <h3 style="color: #fff; margin-bottom: 1.5rem;">Personagens em Destaque</h3>
+                <div class="game-grid">
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/4cc9f0?text=Zhongli" alt="Zhongli">
+                        <div class="game-item-content">
+                            <h3>Zhongli</h3>
+                            <p>Arconte Geo - Suporte Defensivo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/4cc9f0?text=Raiden" alt="Raiden Shogun">
+                        <div class="game-item-content">
+                            <h3>Raiden Shogun</h3>
+                            <p>Sub-DPS/Support - Eletro</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/4cc9f0?text=Hu+Tao" alt="Hu Tao">
+                        <div class="game-item-content">
+                            <h3>Hu Tao</h3>
+                            <p>DPS Principal - Pyro</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/4cc9f0?text=Nahida" alt="Nahida">
+                        <div class="game-item-content">
+                            <h3>Nahida</h3>
+                            <p>Support/Sub-DPS - Dendro</p>
+                        </div>
+                    </div>
+
+                -->
+                </div>
+            </div>
+        
+            <div id="detroit" class="tab-content">
+                <div class="game-featured">
+                    <img src="{%static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="game-featured-image">
+                    <div class="game-featured-content">
+                        <h2>Detroit: Become Human</h2>
+                        <p>Em um futuro próximo onde androides parecidos com humanos servem a humanidade, três personagens diferentes veem suas vidas se entrelaçarem à medida que começam a despertar para sua própria consciência. Suas escolhas moldarão o rumo da narrativa, levando a múltiplos finais possíveis.</p>
+                        <a href="{%url 'IS:home'%}" class="btn">Saiba Mais</a>
+                    </div>
+                </div>
+                <!--
+                <h3 style="color: #fff; margin-bottom: 1.5rem;">Personagens Principais</h3>
+                <div class="game-grid">
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/7209b7?text=Connor" alt="Connor">
+                        <div class="game-item-content">
+                            <h3>Connor</h3>
+                            <p>Android investigador da CyberLife</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/7209b7?text=Kara" alt="Kara">
+                        <div class="game-item-content">
+                            <h3>Kara</h3>
+                            <p>Android doméstico que desenvolve empatia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/7209b7?text=Markus" alt="Markus">
+                        <div class="game-item-content">
+                            <h3>Markus</h3>
+                            <p>Líder da revolução Android</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-item">
+                        <img src="https://via.placeholder.com/400x300/2a2a3a/7209b7?text=Alice" alt="Alice">
+                        <div class="game-item-content">
+                            <h3>Alice</h3>
+                            <p>Criança protegida por Kara</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Jogos</h4>
+                <ul>
+                    <li><a href="#">Genshin Impact</a></li>
+                    <li><a href="#">Detroit: Become Human</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Sobre</h4>
+                <ul>
+                    <li><a href="#">Nossa Equipe</a></li>
+                    <li><a href="#">Metodologia</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 IS project. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        
+        // JavaScript para as abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Efeito hover nos cards de jogo
+            const gameCards = document.querySelectorAll('.game-card, .game-item');
+            
+            gameCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-7px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.4)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+                });
+            });
+        });
+
+        
+    
+    </script>
+</body>
+</html>
