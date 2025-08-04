@@ -12,6 +12,10 @@ from .forms import UserRegisterForm, LoginForm
 # Create your views here.
 def front_page_loader(request):
     return render(request, "pages/front_page.html")
+def catalogo_page(request):
+    return render(request, "pages/catalogo.html")
+def sobre_page(request):
+    return render(request, 'pages/sobre.html')
 
 def home_page(request):
     return render(request, 'pages/base_page_function.html')

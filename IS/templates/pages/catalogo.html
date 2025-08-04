@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - 7 Saberes</title>
+    <link rel="stylesheet" href="{% static 'IS/style.css' %}">
+</head>
+<body>
+    <header>
+    <a href="{% url 'IS:front_page' %}" class="logo-link">
+    <div class="logo">Débat-Player</div>
+    </a>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{% url 'IS:catalogo' %}">Catálogo</a></li>
+            <li><a href="{% url 'IS:sobre' %}">Sobre</a></li>
+            <li><a href="{% url 'IS:login' %}">Login</a></li>
+            <li><a href="{% url 'IS:register' %}">Registrar-se</a></li>
+        </ul>
+    </nav>
+</header>
+    
+    <main class="main-container">
+        <section class="welcome-section">
+            <h1>Catálogo dos 7 Saberes de Edgar Morin</h1>
+            <p>Explore cada um dos saberes essenciais para a educação do futuro através dos nossos recursos e jogos associados.</p>
+        </section>
+        
+        <section class="tabs-section">
+            <h2 class="section-title">Os 7 Saberes</h2>
+            <div class="tabs-container">
+                <button class="tab-button active" data-tab="saber1">1. As Cegueiras do Conhecimento</button>
+                <button class="tab-button" data-tab="saber2">2. Princípios do Conhecimento Pertinente</button>
+                <button class="tab-button" data-tab="saber3">3. Ensinar a Condição Humana</button>
+                <button class="tab-button" data-tab="saber4">4. Identidade Terrena</button>
+                <button class="tab-button" data-tab="saber5">5. Enfrentar as Incertezas</button>
+                <button class="tab-button" data-tab="saber6">6. Ensino da Compreensão</button>
+                <button class="tab-button" data-tab="saber7">7. Ética do Gênero Humano</button>
+            </div>
+            
+            <!-- Saber 1 -->
+            <div id="saber1" class="tab-content active">
+    <h2 class="section-title">1. As Cegueiras do Conhecimento</h2>
+    <p>Explore os erros e ilusões que frequentemente acompanham o ato de conhecer. Este saber aborda como nosso conhecimento pode ser distorcido por paradigmas, valores e interesses ocultos.</p>
+    <div class="games-grid">
+        
+        
+        <div class="game-card">
+            <img src="{% static 'images/the_last_of_us.jpg' %}" alt="Outro Jogo" class="game-card-image">
+            <div class="game-card-content">
+                <h3>The Last of Us (parte I e II)</h3>
+                <p>Em um mundo pós-apocalíptico devastado por uma infecção fúngica, o jogo segue as jornadas de Joel e Ellie. A narrativa é profundamente focada nos relacionamentos humanos, na luta pela sobrevivência e nas escolhas morais em um cenário de escassez e perigo.</p>
+                <div class="game-meta">
+                    <span class="game-update">NOVO</span>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+</div>
+            
+            <!-- Saber 2 -->
+            <div id="saber2" class="tab-content">
+    <h2 class="section-title">2. Princípios do Conhecimento Pertinente</h2>
+    <p>Descubra como contextualizar e globalizar as informações para construir um conhecimento que tenha sentido e significado.</p>
+    <div class="games-grid">
+        <div class="game-card">
+            <img src="{% static 'images/civilization.jpg' %}" alt="Civilization" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Civilization</h3>
+                <p>Neste jogo de estratégia, as decisões impactam o desenvolvimento da civilização ao longo de milênios, exigindo uma visão global e contextualizada.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="{% static 'images/simcity.jpg' %}" alt="SimCity" class="game-card-image">
+            <div class="game-card-content">
+                <h3>SimCity</h3>
+                <p>Simule o planejamento e a gestão de uma cidade, entendendo como diferentes setores (economia, meio ambiente, etc.) se interligam e afetam o todo.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="saber3" class="tab-content">
+    <h2 class="section-title">3. Ensinar a Condição Humana</h2>
+    <p>Compreenda a complexidade da identidade humana, que é ao mesmo tempo biológica, psíquica, social e cultural. Aprenda sobre a unidade e a diversidade do ser humano.</p>
+    <div class="games-grid">
+        <div class="game-card">
+            <img src="{% static 'images/the-sims.jpg' %}" alt="The Sims 4" class="game-card-image">
+            <div class="game-card-content">
+                <h3>The Sims 4</h3>
+                <p>Crie e controle personagens, explorando as complexidades das relações sociais, necessidades básicas e aspirações individuais.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="{% static 'images/life-is-strange.jpg' %}" alt="Life is Strange" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Life is Strange</h3>
+                <p>Em um jogo focado em narrativa e escolhas, o jogador explora as emoções e dilemas da adolescência, tratando de temas como amizade e responsabilidade.</p>
+                <div class="game-meta">
+                    <span class="game-update">NOVO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="saber4" class="tab-content">
+    <h2 class="section-title">4. Identidade Terrena</h2>
+    <p>Reflita sobre o destino comum da humanidade. Reconheça nossa interdependência e a necessidade de cuidar do planeta, nossa pátria comum.</p>
+    <div class="games-grid">
+        <div class="game-card">
+            <img src="{% static 'images/eco.jpg' %}" alt="Eco" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Eco</h3>
+                <p>Colabore com outros jogadores para construir uma civilização e evitar uma catástrofe ambiental global, exigindo cuidado com o ecossistema e responsabilidade compartilhada.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="{% static 'images/minecraft.jpg' %}" alt="Minecraft" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Minecraft</h3>
+                <p>Neste jogo de criação e sobrevivência, os jogadores precisam gerenciar recursos de forma sustentável para construir e prosperar em um mundo compartilhado.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="saber5" class="tab-content">
+    <h2 class="section-title">5. Enfrentar as Incertezas</h2>
+    <p>Prepare-se para o inesperado. Este saber destaca a importância de desenvolver o pensamento estratégico e a capacidade de lidar com a imprevisibilidade da vida.</p>
+    <div class="games-grid">
+        <a href="{% url 'IS:home'%}" class="game-card-link">
+        <div class="game-card">
+            <img src="{% static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Detroit: Become Human</h3>
+                <p>Analise como os personagens lidam com suas próprias cegueiras cognitivas sobre a natureza da humanidade.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        
+        
+        
+    </div>
+</div>
+
+<div id="saber6" class="tab-content">
+    <h2 class="section-title">6. Ensino da Compreensão</h2>
+    <p>Aprenda a importância do diálogo, da empatia e do respeito pelas diferenças. Este saber combate as barreiras da comunicação e do entendimento entre as pessoas.</p>
+    <div class="games-grid">
+
+        <a href="{% url 'IS:home'%}" class="game-card-link">
+        <div class="game-card">
+            <img src="{% static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Detroit: Become Human</h3>
+                <p>Analise como os personagens lidam com suas próprias cegueiras cognitivas sobre a natureza da humanidade.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <div class="game-card">
+            <img src="{% static 'images/undertale.jpg' %}" alt="Undertale" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Undertale</h3>
+                <p>As escolhas do jogador de poupar ou lutar contra os inimigos afetam a narrativa, incentivando a empatia e a tentativa de compreensão em vez do conflito direto.</p>
+                <div class="game-meta">
+                    <span class="game-update">NOVO</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <img src="{% static 'images/genshin_impact.jpg' %}" alt="genshin" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Genshin Impact</h3>
+                <p>Explore Teyvat, um mundo intrigante, divertido e perigoso e aprenda com sua história e personagens únicos, cada um com habilidades e histórias distintas.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="saber7" class="tab-content">
+    <h2 class="section-title">7. Ética do Gênero Humano</h2>
+    <p>Promova a solidariedade e a responsabilidade entre os indivíduos, a sociedade e a espécie. Este saber é o alicerce para uma ética global e planetária.</p>
+    <div class="games-grid">
+        <div class="game-card">
+            <img src="{% static 'images/papers.jpg' %}" alt="Papers, please! " class="game-card-image">
+            <div class="game-card-content">
+                <h3>Papers, please!</h3>
+                <p>Neste jogo de simulação e dilemas morais, você assume o papel de um inspetor de imigração em Arstotzka, um país fictício com um regime totalitário. Sua tarefa é processar documentos de viajantes e decidir quem pode entrar e quem deve ser negado.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+        <div class="game-card">
+            <img src="{% static 'images/frostpunk.jpg' %}" alt="Star Wars: Knights of the Old Republic" class="game-card-image">
+            <div class="game-card-content">
+                <h3>Frostpunk</h3>
+                <p>Em um futuro apocalíptico onde a Terra foi congelada, você é o líder da última cidade humana. Seu objetivo é garantir a sobrevivência de sua população, gerenciando recursos, construindo infraestrutura e, principalmente, tomando decisões morais e éticas sobre como governar.</p>
+                <div class="game-meta">
+                    <span class="game-update">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Estrutura similar para saberes 3 a 7 -->
+            
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Rodapé idêntico ao da front_page -->
+    </footer>
+    
+    <script>
+        // JavaScript idêntico ao da front_page para funcionamento das abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Efeito hover nos cards
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-7px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.4)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

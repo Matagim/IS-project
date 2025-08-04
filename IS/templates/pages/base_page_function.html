@@ -16,38 +16,59 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li class="active"><a href="#saber1"><i class="icon saber-icon"></i> Saber 1: As Cegueiras do Conhecimento</a></li>
+                    
                     <li><a href="#saber2"><i class="icon saber-icon"></i> Saber 2: Princípios do Conhecimento Pertinente</a></li>
-                    <li><a href="#saber3"><i class="icon saber-icon"></i> Saber 3: Ensinar a Condição Humana</a></li>
-                    <li><a href="#saber4"><i class="icon saber-icon"></i> Saber 4: Identidade Terrena</a></li>
                     <li><a href="#saber5"><i class="icon saber-icon"></i> Saber 5: Enfrentar as Incertezas</a></li>
                     <li><a href="#saber6"><i class="icon saber-icon"></i> Saber 6: Ensino da Compreensão</a></li>
-                    <li><a href="#saber7"><i class="icon saber-icon"></i> Saber 7: Ética do Gênero Humano</a></li>
                     <li class="divider"></li>
                     <li><a href="#discussao"><i class="icon discussion-icon"></i> Sala de Discussão</a></li>
-                    <li><a href="#quizzes"><i class="icon quiz-icon"></i> Quizzes Interativos</a></li>
+                    <li><a href="#quizzes"><i class="icon quiz-icon"></i> Atividades Interativas</a></li>
                 </ul>
             </nav>
         </aside>
 
         <!-- Conteúdo Principal -->
         <main class="game-content">
-            <header class="game-header">
-                <h1>Detroit: Become Human</h1>
-                <div class="game-meta">
-                    <span class="update-status">Atualizado: 15/06/2023</span>
-                </div>
-            </header>
+    <header class="game-header">
+    <button class="menu-toggle-btn" aria-label="Alternar Menu">&#9776;</button>
+    <div class="header-content">
+        <h1>Detroit: Become Human</h1>
+        <p>Explore como o jogo aborda temas como moralidade, empatia e a própria definição de humanidade através dos 7 Saberes de Edgar Morin.</p>
+        <div class="game-meta">
+            <span class="update-status">Atualizado: 15/06/2023</span>
+        </div>
+    </div>
+</header>
 
-            <section id="saber1" class="content-section active-section">
-                <h2>As Cegueiras do Conhecimento</h2>
-                <div class="content-card">
-                    <!-- Conteúdo do primeiro saber -->
-                </div>
-            </section>
+   
 
-            <!-- Outras seções... -->
-        </main>
+    <section id="saber2" class="content-section">
+        <h2>2. Princípios do Conhecimento Pertinente</h2>
+        <div class="content-card">
+        </div>
+    </section>
+
+    <section id="discussao" class="content-section">
+        <h2>Sala de Discussão</h2>
+        <div class="content-card">
+            <p><strong>Crie uma sala de conversa:</strong> Interaja com outros usuários e professores para debater os dilemas éticos de Detroit: Become Human. Compartilhe suas teorias, impressões e como o jogo impactou sua visão de mundo.</p>
+            <div class="discussion-buttons">
+                <button class="btn btn-primary">Criar Nova Sala</button>
+                <button class="btn btn-secondary">Entrar em uma Sala Existente</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="quizzes" class="content-section">
+        <h2>Atividades Interativas</h2>
+        <div class="content-card">
+            <p><strong>Teste seus conhecimentos:</strong> Para educadores, esta seção oferece quizzes prontos para uso em sala de aula. Os quizzes exploram a compreensão dos 7 Saberes através das escolhas e narrativas do jogo. Acompanhe o progresso de seus alunos e promova o pensamento crítico.</p>
+            <div class="quiz-buttons">
+                <button class="btn btn-primary">Ver Quizzes</button>
+            </div>
+        </div>
+    </section>
+</main>
     </div>
 
     <script>
@@ -85,6 +106,25 @@
         navLinks[0].click();
     }
 });
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... (seu código de navegação das abas aqui) ...
+
+        // Lógica para o botão de alternância do menu
+        const menuToggleButton = document.querySelector('.menu-toggle-btn');
+        const sidebar = document.querySelector('.game-sidebar');
+        const content = document.querySelector('.game-content');
+
+        if (menuToggleButton) {
+            menuToggleButton.addEventListener('click', function() {
+                sidebar.classList.toggle('hidden');
+                content.classList.toggle('full-width');
+            });
+        }
+    });
+
     </script>
 </body>
 </html>

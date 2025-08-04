@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - 7 Saberes de Morin</title>
+    <link rel="stylesheet" href="{% static 'IS/sobre.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'IS:front_page' %}" class="logo-link">
+    <div class="logo">Débat-Player</div>
+    </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{% url 'IS:catalogo' %}">Catálogo</a></li>
+                <li><a href="{% url 'IS:sobre' %}" >Sobre</a></li>
+                <li><a href="{% url 'IS:login' %}" >Login</a></li>
+                <li><a href="{% url 'IS:register' %}">Registrar-se</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main-container">
+        
+       <section class="welcome-section about-intro">
+    <div class="intro-content">
+        <h1>Sobre os 7 Saberes de Edgar Morin</h1>
+        <p>Conheça os princípios fundamentais propostos por Edgar Morin em "Os Sete Saberes Necessários à Educação do Futuro", que servem de base para a nossa metodologia.</p>
+    </div>
+    <div class="book-cover-container">
+        <img src="{% static 'images/EdgarMorin.jpg' %}" alt="Capa do livro Os Sete Saberes de Edgar Morin" class="book-cover-image">
+        <p class="book-credits">Capa do livro "Os Sete Saberes Necessários à Educação do Futuro" (Edgar Morin)</p>
+    </div>
+</section>
+
+<section class="tabs-section">
+    <h2 class="section-title">Nossa Metodologia</h2>
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="openTab('saber1')">1</button>
+        <button class="tab-button" onclick="openTab('saber2')">2</button>
+        <button class="tab-button" onclick="openTab('saber3')">3</button>
+        <button class="tab-button" onclick="openTab('saber4')">4</button>
+        <button class="tab-button" onclick="openTab('saber5')">5</button>
+        <button class="tab-button" onclick="openTab('saber6')">6</button>
+        <button class="tab-button" onclick="openTab('saber7')">7</button>
+    </div>
+
+    <div id="saber1" class="tab-content active">
+        <h3>As Cegueiras do Conhecimento</h3>
+        <p>Morin argumenta que a educação deve abordar os erros e ilusões que acompanham o conhecimento humano. Isso inclui a autocrítica, a exposição de vieses e a conscientização sobre como nossas percepções podem ser distorcidas por preconceitos e ideologias. O objetivo é ensinar a combater a arrogância e a certeza absoluta.</p>
+    </div>
+
+    <div id="saber2" class="tab-content">
+        <h3>Os Princípios de um Conhecimento Pertinente</h3>
+        <p>O conhecimento pertinente é aquele que conecta e contextualiza as informações, em vez de isolá-las em disciplinas separadas. A educação deve ensinar a perceber o todo e suas partes, a integrar o local ao global e a entender o complexo, evitando a simplificação excessiva que empobrece o saber.</p>
+    </div>
+    
+    <div id="saber3" class="tab-content">
+        <h3>Ensinar a Condição Humana</h3>
+        <p>Este saber propõe que a educação explore a complexidade da identidade humana. O ser humano é, ao mesmo tempo, físico, biológico, psíquico, cultural, social e histórico. Ensinar a condição humana significa reconhecer a unidade e a diversidade da nossa espécie, combatendo a visão fragmentada do ser.</p>
+    </div>
+
+    <div id="saber4" class="tab-content">
+        <h3>Ensinar a Identidade Terrena</h3>
+        <p>Com a globalização, a humanidade compartilha um destino comum. Este saber defende a necessidade de uma consciência planetária, onde cada indivíduo se veja como parte da comunidade terrestre. A educação deve focar nos problemas globais e na interdependência, promovendo a solidariedade e a responsabilidade com o planeta.</p>
+    </div>
+
+    <div id="saber5" class="tab-content">
+        <h3>Enfrentar as Incertezas</h3>
+        <p>A educação tradicional muitas vezes foca em certezas, mas a realidade é incerta. Morin sugere que o ensino deve preparar para a incerteza e a imprevisibilidade. Isso envolve o desenvolvimento do pensamento estratégico e da capacidade de lidar com o inesperado, incentivando a resiliência e a adaptação.</p>
+    </div>
+
+    <div id="saber6" class="tab-content">
+        <h3>Ensinar a Compreensão</h3>
+        <p>A compreensão é a base da comunicação humana. A educação deve ir além do conhecimento para ensinar a empatia e o entendimento mútuo. Combater os preconceitos, o etnocentrismo e as barreiras psicológicas que impedem o diálogo é crucial para a paz e para a coesão social.</p>
+    </div>
+
+    <div id="saber7" class="tab-content">
+        <h3>A Ética do Gênero Humano</h3>
+        <p>Este saber articula os saberes anteriores em uma ética global. A educação deve promover a tripla ética: indivíduo, sociedade e espécie. O objetivo é ensinar a responsabilidade individual e coletiva, a solidariedade e a noção de que somos, ao mesmo tempo, indivíduos únicos e parte de uma comunidade maior.</p>
+    </div>
+</section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Jogos</h4>
+                <ul>
+                    <li><a href="#">Genshin Impact</a></li>
+                    <li><a href="#">Detroit: Become Human</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Sobre</h4>
+                <ul>
+                    <li><a href="{% url 'IS:sobre' %}">Nossa Metodologia</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 IS project. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+    function openTab(tabId) {
+        // Remove a classe 'active' de todos os botões e conteúdos
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Adiciona a classe 'active' ao botão e conteúdo selecionado
+        document.querySelector(`[onclick="openTab('${tabId}')"]`).classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

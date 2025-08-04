@@ -1,296 +1,288 @@
-/* ===== ESTILO GERAL ===== */
-:root {
-    --sidebar-width: 280px;
-    --primary-color: #4cc9f0;
-    --secondary-color: #7209b7;
-    --dark-bg: #1a1a2e;
-    --darker-bg: #0f0f1a;
-    --card-bg: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
-}
-
-* {
+/* Estilos Gerais para a página de jogo */
+body {
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--darker-bg);
-    color: #e0e0e0;
+    display: flex;
 }
 
 .main-container {
     display: flex;
-    min-height: 100vh;
+    width: 100%;
 }
 
-/* ===== SIDEBAR ===== */
+/* ===== Sidebar (Barra Lateral) ===== */
 .game-sidebar {
-    width: var(--sidebar-width);
-    background-color: var(--dark-bg);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
+    background-color: #1e1e1e;
+    width: 280px;
     height: 100vh;
+    position: fixed;
     overflow-y: auto;
+    padding: 2rem 1.5rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    z-index: 50; /* Garante que a sidebar fique por cima */
 }
 
 .sidebar-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #2e2e3e;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .sidebar-header h2 {
-    color: white;
-    font-size: 1.3rem;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    color: #4cc9f0;
 }
 
 .sidebar-nav ul {
     list-style: none;
-    padding: 1rem 0;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-nav li {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav li.active,
+.sidebar-nav li:hover {
+    background-color: #2a2a2a;
 }
 
 .sidebar-nav a {
     display: flex;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem;
     color: #b8b8b8;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-radius: 8px;
 }
 
+.sidebar-nav li.active a,
 .sidebar-nav a:hover {
-    background-color: rgba(76, 201, 240, 0.1);
-    color: white;
+    color: #fff;
 }
 
-.sidebar-nav .active a {
-    background-color: rgba(76, 201, 240, 0.2);
-    color: var(--primary-color);
-    border-left: 3px solid var(--primary-color);
-}
-
-.icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.saber-icon {
-    background-image: url('{% static "IS/icons/saber-icon.svg" %}');
-}
-
-.discussion-icon {
-    background-image: url('{% static "IS/icons/discussion-icon.svg" %}');
-}
-
-.quiz-icon {
-    background-image: url('{% static "IS/icons/quiz-icon.svg" %}');
+.sidebar-nav .icon {
+    width: 24px;
+    height: 24px;
+    background-color: #4cc9f0; /* Cor padrão para ícones */
+    margin-right: 1rem;
 }
 
 .divider {
     height: 1px;
-    background-color: #2e2e3e;
-    margin: 1rem 0;
+    background-color: #333;
+    margin: 1.5rem 0;
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
+/* Classe para esconder a barra lateral */
+.game-sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* ===== Conteúdo Principal ===== */
 .game-content {
-    flex: 1;
+    margin-left: 280px;
+    width: calc(100% - 280px);
     padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* Estilo do botão de alternância do menu */
+.menu-toggle-btn {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 1rem; /* Adicionado para separar do conteúdo */
+    z-index: 100;
+}
+
+/* Quando a sidebar está oculta, o conteúdo ocupa a largura total */
+.game-content.full-width {
+    margin-left: 0;
     width: 100%;
 }
 
+
+/* Estilos para o conteúdo */
 .game-header {
     margin-bottom: 2rem;
-    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.game-header .header-content {
+    flex-grow: 1;
 }
 
 .game-header h1 {
-    font-size: 2.5rem;
-    color: white;
+    font-size: 3rem;
+    background: linear-gradient(90deg, #4cc9f0, #7209b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
 }
 
+.game-header p {
+    font-size: 1.1rem;
+    color: #b8b8b8;
+}
+
 .game-meta {
-    color: #888;
-    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.update-status {
+    background-color: #2a2a2a;
+    color: #999;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
 }
 
 .content-section {
     display: none;
+    animation: fadeIn 0.5s ease;
 }
 
 .content-section.active-section {
     display: block;
-    animation: fadeIn 0.5s ease;
 }
 
-/* ESTILO CENTRALIZADO PARA TÍTULOS H2 */
-.content-section.active-section h2 {
-    text-align: center;
-    margin: 0 auto 2rem;
-    max-width: 80%;
-    position: relative;
-    padding-bottom: 15px;
-    color: #fff;
+.content-section h2 {
     font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-.content-section.active-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 3px;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    border-left: 4px solid #4cc9f0;
+    padding-left: 1rem;
 }
 
 .content-card {
-    background: var(--card-bg);
-    border-radius: 8px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
     padding: 2rem;
-    margin: 0 auto 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #2e2e3e;
-    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.content-card p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 1rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin-right: 1rem;
+}
+
+.btn-primary {
+    background-color: #4cc9f0;
+    color: #1a1a1a;
+}
+
+.btn-primary:hover {
+    background-color: #3ab7de;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #b8b8b8;
+    color: #b8b8b8;
+}
+
+.btn-secondary:hover {
+    background-color: #2a2a2a;
+    border-color: #fff;
+    color: #fff;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ===== RESPONSIVIDADE COMPLETA ===== */
+/* Responsividade */
+@media (max-width: 992px) {
+    .game-sidebar {
+        width: 220px;
+        padding: 1.5rem 1rem;
+    }
 
-/* Telas grandes (acima de 1600px) */
-@media (min-width: 1600px) {
     .game-content {
-        padding: 2rem calc((100% - 1200px)/2);
+        margin-left: 220px;
+        width: calc(100% - 220px);
+        padding: 1.5rem;
     }
-    .content-section.active-section h2 {
-        max-width: 70%;
-    }
-}
-
-/* Tablets landscape e desktops pequenos (1024px - 1400px) */
-@media (max-width: 1400px) {
-    .game-content {
-        padding: 2rem 3rem;
-    }
-    .content-card {
-        max-width: 100%;
+    
+    .game-header h1 {
+        font-size: 2.5rem;
     }
 }
 
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-    .content-section.active-section h2 {
-        max-width: 85%;
-        font-size: 2rem;
-        padding-bottom: 12px;
-    }
-    .content-section.active-section h2::after {
-        width: 100px;
-        height: 3px;
-    }
-}
-
-/* Tablets pequenos e celulares grandes (600px - 768px) */
 @media (max-width: 768px) {
-    .main-container {
+    body {
         flex-direction: column;
     }
     
     .game-sidebar {
+        position: static;
         width: 100%;
         height: auto;
-        position: relative;
-    }
-    
-    .sidebar-nav {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    
-    .sidebar-nav ul {
-        display: flex;
-        padding: 0;
-    }
-    
-    .sidebar-nav li {
-        margin-bottom: 0;
-        border-right: 1px solid #2e2e3e;
-    }
-    
-    .sidebar-nav a {
         padding: 1rem;
     }
     
-    .divider {
+    .game-sidebar .sidebar-nav {
         display: none;
     }
-    
+
     .game-content {
+        margin-left: 0;
+        width: 100%;
         padding: 1.5rem;
     }
-    
-    .content-section.active-section h2 {
-        max-width: 90%;
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 10px;
-    }
-    
-    .content-section.active-section h2::after {
-        width: 80px;
-    }
-    
-    .content-card {
-        padding: 1.5rem;
-    }
-}
 
-/* Celulares médios (480px - 600px) */
-@media (max-width: 600px) {
-    .content-section.active-section h2 {
-        font-size: 1.6rem;
-        max-width: 95%;
-    }
-}
-
-/* Celulares pequenos (até 480px) */
-@media (max-width: 480px) {
-    .content-section.active-section h2 {
-        font-size: 1.4rem;
-        padding-bottom: 8px;
-    }
-    
-    .content-section.active-section h2::after {
-        width: 60px;
-        height: 2.5px;
-    }
-    
     .game-header h1 {
         font-size: 2rem;
     }

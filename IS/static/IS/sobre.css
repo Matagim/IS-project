@@ -24,16 +24,25 @@ header {
     z-index: 100;
 }
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
     color: white;
     font-size: 1.8rem;
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.logo-link:hover .logo {
+    color: #4cc9f0;
 }
 
 .main-nav {
-    /* Essa é a regra chave que empurra a navegação para a direita */
     margin-left: auto;
 }
 
@@ -51,13 +60,16 @@ header {
     color: white;
     font-weight: 500;
     padding: 8px 16px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 4px;
     position: relative;
+    white-space: nowrap;
 }
 
-.main-nav ul li a:hover {
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
     background-color: rgba(255, 255, 255, 0.1);
+    color: #4cc9f0;
 }
 
 .main-nav ul li a::after {
@@ -71,6 +83,7 @@ header {
     transition: width 0.3s;
 }
 
+.main-nav ul li a.active::after,
 .main-nav ul li a:hover::after {
     width: 100%;
 }
@@ -133,135 +146,9 @@ header {
     color: #b8b8b8;
 }
 
-/* Seção de Jogos */
+/* Seção de Jogos (Front Page) */
 .games-section {
     margin-bottom: 4rem;
-}
-
-.carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    overflow-x: auto;
-    gap: 0.5rem; /* Espaço entre os cards */
-    padding-bottom: 2rem; /* Espaço para a barra de rolagem */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-}
-
-.carousel-track::-webkit-scrollbar {
-    display: none; /* Esconde a barra de rolagem em WebKit */
-}
-
-.carousel-nav {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-    height: 100%;
-    width: 60px;
-    opacity: 0; /* Começa oculto */
-    transition: opacity 0.3s ease;
-}
-
-.carousel-wrapper:hover .carousel-nav {
-    opacity: 1; /* Transparente para dar um efeito de fade */
-}
-
-.carousel-nav:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.prev-nav {
-    left: 0;
-    border-radius: 0 4px 4px 0;
-    opacity: 0; /* Oculta a seta da esquerda por padrão */
-    pointer-events: none; /* Impede que o botão seja clicável quando oculto */
-}
-
-.carousel-wrapper:hover .prev-nav.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-
-.next-nav {
-    right: 0;
-    border-radius: 4px 0 0 4px;
-}
-
-.featured-item-link {
-    display: block;
-    text-decoration: none;
-    flex-shrink: 0;
-    width: 250px; /* Largura fixa maior */
-    height: 350px; /* Altura fixa maior */
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-    scroll-snap-align: start;
-}
-
-.featured-item-link:hover {
-    transform: scale(1.1);
-    z-index: 5;
-}
-
-.featured-item {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.featured-item-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.featured-item-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    padding: 1rem 0.8rem;
-    color: white;
-    transform: translateY(100%); /* Começa oculto */
-    transition: transform 0.3s ease;
-}
-
-.featured-item-link:hover .featured-item-overlay {
-    transform: translateY(0); /* Aparece ao passar o mouse */
-}
-
-.overlay-content h4 {
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-.overlay-tag {
-    display: inline-block;
-    background-color: #e50914; /* Cor inspirada na Netflix */
-    color: white;
-    font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 3px;
-    margin-top: 0.5rem;
 }
 
 .section-title {
@@ -289,6 +176,12 @@ header {
     gap: 2rem;
 }
 
+.game-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .game-card {
     background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
     border-radius: 12px;
@@ -296,9 +189,10 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     border: 1px solid #2e2e3e;
+    height: 100%;
 }
 
-.game-card:hover {
+.game-card-link:hover .game-card {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     border-color: #4cc9f0;
@@ -330,16 +224,14 @@ header {
 
 .game-meta {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
     color: #888;
-    gap: 0.5rem;
 }
 
 .game-update {
-    background-color: #09b783;
+    background-color: #7209b7;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -347,15 +239,18 @@ header {
     font-weight: bold;
 }
 
-/* Seção de Abas */
+/* Seção de Abas (Catálogo e Sobre) */
 .tabs-section {
     margin-bottom: 4rem;
 }
 
 .tabs-container {
     display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid #2a2a3a;
+    padding-bottom: 5px;
 }
 
 .tab-button {
@@ -368,8 +263,11 @@ header {
     cursor: pointer;
     position: relative;
     transition: all 0.3s;
+    white-space: nowrap;
+    margin-right: 0.5rem;
 }
 
+.tab-button:hover,
 .tab-button.active {
     color: #4cc9f0;
 }
@@ -387,6 +285,23 @@ header {
 .tab-content {
     display: none;
     animation: fadeIn 0.5s ease;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #2e2e3e;
+}
+
+.tab-content h3 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tab-content p {
+    color: #b8b8b8;
+    line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .tab-content.active {
@@ -394,98 +309,44 @@ header {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.game-featured {
-    background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3a 100%);
+/* ===== ESTILOS ESPECÍFICOS DA PÁGINA SOBRE ===== */
+
+/* Seção de Introdução com a capa do livro */
+.about-intro {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    text-align: left;
+}
+
+.about-intro .intro-content {
+    flex: 1;
+}
+
+.book-cover-container {
+    text-align: center;
+}
+
+.book-cover-image {
+    width: 250px;
+    height: auto;
     border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
 }
 
-.game-featured-image {
-    width: 50%;
-    min-height: 350px;
-    object-fit: cover;
-}
-
-.game-featured-content {
-    width: 50%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.game-featured h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #fff;
-}
-
-.game-featured p {
-    color: #b8b8b8;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #4cc9f0;
-    color: #0f0f1a;
-    padding: 0.8rem 1.8rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    align-self: flex-start;
-}
-
-.btn:hover {
-    background-color: #3ab7de;
-}
-
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.game-item {
-    background-color: #2a2a3a;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
-
-.game-item:hover {
+.book-cover-image:hover {
     transform: translateY(-5px);
 }
 
-.game-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.game-item-content {
-    padding: 1.2rem;
-}
-
-.game-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
-}
-
-.game-item p {
+.book-credits {
+    margin-top: 1rem;
+    font-style: italic;
     color: #888;
     font-size: 0.9rem;
 }
@@ -538,7 +399,7 @@ footer {
     color: #777;
 }
 
-/* ===== RESPONSIVIDADE HEADER UNIFICADO ===== */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 992px) {
     .main-nav ul {
         gap: 1rem;
@@ -546,6 +407,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* Header */
     header {
         flex-direction: column;
         gap: 1.5rem;
@@ -573,6 +435,7 @@ footer {
         display: block;
     }
 
+    /* Conteúdo Geral */
     .welcome-section h1 {
         font-size: 2.2rem;
     }
@@ -582,23 +445,17 @@ footer {
     }
 
     .tabs-container {
-        justify-content: center;
+        justify-content: flex-start;
     }
-}
 
-.logo-link {
-    text-decoration: none;
-}
+    /* Página Sobre - Introdução */
+    .about-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
 
-.logo-link:hover .logo {
-    color: #4cc9f0;
-}
-
-.logo-link:hover .section-title {
-    color: #4cc9f0;
-}
-
-/* Adicionando a correção para os cards */
-.game-card-link {
-    text-decoration: none;
+    .book-cover-image {
+        width: 180px;
+    }
 }

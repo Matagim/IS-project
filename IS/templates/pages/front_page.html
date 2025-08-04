@@ -5,19 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IS project</title>
+    <title>Débat-Player</title>
     <link rel="stylesheet" href="{% static 'IS/style.css' %}" >
     
 </head>
 <body>
-    <header>
-    <div class="logo">
-        IS project
-    </div>
-    <div class="auth-section">
-         <a href="{% url 'IS:login' %}" class="btn">Login</a>
-         <a href="{% url 'IS:register' %}" class="btn">Registrar-se</a>
-    </div>
+   <header>
+    <a href="{% url 'IS:front_page' %}" class="logo-link">
+    <div class="logo">Débat-Player</div>
+    </a>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="{% url 'IS:catalogo' %}">Catálogo</a></li>
+            <li><a href="{% url 'IS:sobre' %}">Sobre</a></li>
+            <li><a href="{% url 'IS:login' %}">Login</a></li>
+            <li><a href="{% url 'IS:register' %}">Registrar-se</a></li>
+        </ul>
+    </nav>
 </header>
     
     <main class="main-container">
@@ -27,46 +31,165 @@
         </section>
         
          <section class="games-section">
-            <h2 class="section-title">Jogos Disponíveis</h2>
-            <div class="games-grid">
-                <div class="game-card">
-                    <img src="{% static 'images/genshin_impact.jpg' %}" alt="Genshin Impact" class="game-card-image">
-                    <div class="game-card-content">
-                        <h3>Genshin Impact</h3>
-                        <p>Entenda o uso do saber da compreensão de Morran no mundo inquieto de Genshin Impact</p>
-                        <div class="game-meta">
-                            <span class="game-update">NOVO</span>
+    <a href="{% url 'IS:catalogo' %}" class="logo-link">        
+    <h2 class="section-title">Catálogo</h2>
+    </a>
+    <div class="carousel-wrapper" id="main-carousel-wrapper">
+        <button class="carousel-nav prev-nav" aria-label="Voltar">&lt;</button>
+        <div class="carousel-track" id="main-carousel-track">
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/genshin_impact.jpg' %}" alt="Genshin Impact" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Genshin Impact</h4>
+                            <span class="overlay-tag">Ensinar a Compreensão</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="game-card">
-                    <img src="{% static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="game-card-image">
-                    <div class="game-card-content">
-                        <h3>Detroit: Become Human</h3>
-                        <p>Mergulhe em dilemas éticos em um mundo em conflito pela coexistência de androids e humanos. </p>
-                        <div class="game-meta">
-                            <span class="game-update">NOVO</span>
+            </a>
+            
+            <a href="{%url 'IS:home'%}" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/detroit.jpg' %}" alt="Detroit: Become Human" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Detroit: Become Human</h4>
+                            <span class="overlay-tag">Enfrentar as Incertezas</span>
+                            <span class="overlay-tag">Ensinar a compreensão</span>
                         </div>
                     </div>
                 </div>
-                
-               <!-- <div class="game-card">
-                    <img src="https://via.placeholder.com/600x400/2a2a3a/7209b7?text=Honkai+Star+Rail" alt="Honkai Star Rail" class="game-card-image">
-                    <div class="game-card-content">
-                        <h3>Honkai: Star Rail</h3>
-                        <p>Tudo sobre builds, times ideais e o meta atual de Honkai: Star Rail.</p>
-                        <div class="game-meta">
-                            <span>Atualizado há 2 dias</span>
+            </a>
+            
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/the-sims.jpg' %}" alt="The Sims" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>The Sims</h4>
+                            <span class="overlay-tag">Ensinar a condição humana</span>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
-        -->
-        </section>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/civilization.jpg' %}" alt="Civilization" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Civilization VI</h4>
+                            <span class="overlay-tag">Princípios do Conhecimento Pertinente</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/frostpunk.jpg' %}" alt="Frostpunk" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Frostpunk</h4>
+                            <span class="overlay-tag">Ética do Gênero Humano</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/the_last_of_us.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>The Last of Us (Parte I e II)</h4>
+                            <span class="overlay-tag">As Cegueiras do Conhecimento</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/simcity.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>SimCity</h4>
+                            <span class="overlay-tag">Princípios do Conhecimento Pertinente</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/life-is-strange.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Life is Strange</h4>
+                            <span class="overlay-tag">Ensinar a Condição Humana</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/Minecraft.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Minecraft</h4>
+                            <span class="overlay-tag">Identidade Terrena</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/eco.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Eco</h4>
+                            <span class="overlay-tag">Identidade Terrena</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/undertale.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Undertale</h4>
+                            <span class="overlay-tag">Ensino da Compreensão</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="featured-item-link">
+                <div class="featured-item">
+                    <img src="{% static 'images/papers.jpg' %}" alt="The Last of Us" class="featured-item-image">
+                    <div class="featured-item-overlay">
+                        <div class="overlay-content">
+                            <h4>Papers, Please!</h4>
+                            <span class="overlay-tag">Ética do Gênero Humano</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <button class="carousel-nav next-nav" aria-label="Avançar">&gt;</button>
+    </div>
+</section>
     
         <section class="tabs-section">
-            <h2 class="section-title">Jogos</h2>
+            <h2 class="section-title">Destaques</h2>
             <div class="tabs-container">
                 <button class="tab-button active" data-tab="genshin">Genshin Impact</button>
                 <button class="tab-button" data-tab="detroit">Detroit: Become Human</button>
@@ -81,6 +204,7 @@
                         <a href="{%url 'IS:home'%}" class="btn">Saiba Mais</a>
                     </div>
                 </div>
+                
             <!--    
                 <h3 style="color: #fff; margin-bottom: 1.5rem;">Personagens em Destaque</h3>
                 <div class="game-grid">
@@ -229,6 +353,38 @@
                 });
             });
         });
+
+         document.addEventListener('DOMContentLoaded', function() {
+        const carouselWrapper = document.getElementById('main-carousel-wrapper');
+        const carouselTrack = document.getElementById('main-carousel-track');
+        const prevBtn = carouselWrapper.querySelector('.prev-nav');
+        const nextBtn = carouselWrapper.querySelector('.next-nav');
+
+        if (carouselWrapper && carouselTrack) {
+            const scrollDistance = carouselTrack.offsetWidth / 2; // Rola metade da largura do carrossel
+            
+            // Lógica de clique para o botão "Avançar"
+            nextBtn.addEventListener('click', () => {
+                carouselTrack.scrollLeft += scrollDistance;
+            });
+
+            // Lógica de clique para o botão "Voltar"
+            prevBtn.addEventListener('click', () => {
+                carouselTrack.scrollLeft -= scrollDistance;
+            });
+            
+            // Evento de rolagem para mostrar/esconder o botão "Voltar"
+            carouselTrack.addEventListener('scroll', () => {
+                // Se a rolagem não estiver no início (scrollLeft > 0), mostra o botão
+                if (carouselTrack.scrollLeft > 0) {
+                    prevBtn.classList.add('visible');
+                } else {
+                    // Se a rolagem estiver no início, esconde o botão
+                    prevBtn.classList.remove('visible');
+                }
+            });
+        }
+    });
 
         
     
